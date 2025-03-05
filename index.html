@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>SN Loan Manager</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <div id="app" style="display: none;">
+        <div class="container">
+            <div class="section entry-section">
+                <h2>New Loan Entry</h2>
+                <form id="loanForm">
+                    <select id="type" required>
+                        <option value="" disabled selected>Select Type</option>
+                        <option value="NR">NR</option>
+                        <option value="R">R</option>
+                        <option value="Vyapari">Vyapari</option>
+                    </select>
+                    <input type="text" id="date" placeholder="Date (DD-MM-YYYY)" required>
+                    <input type="text" id="customerName" placeholder="Customer Name" required>
+                    <input type="text" id="customerAddress" placeholder="Customer Address" required>
+                    <input type="tel" id="customerPhone" placeholder="Phone Number">
+                    <textarea id="items" placeholder="Items" required></textarea>
+                    <input type="number" id="amount" placeholder="Amount Given" required>
+                    <button type="submit">Add Loan</button>
+                </form>
+                <div class="db-controls">
+                    <button id="exportBtn">Export Database (JSON)</button>
+                    <input type="file" id="importFile" accept=".json" style="display: none;">
+                    <button id="importBtn">Import Database</button>
+                    <button id="exportExcelBtn">Export to Excel</button>
+                    <button id="viewReportsBtn">View Reports</button>
+                </div>
+            </div>
+            <div class="section loans-section">
+                <h2>Active Loans</h2>
+                <input type="text" id="searchActive" placeholder="Search Active Loans">
+                <ul id="activeLoans"></ul>
+            </div>
+            <div class="section settled-section">
+                <h2>Settled Loans</h2>
+                <input type="text" id="searchSettled" placeholder="Search Settled Loans">
+                <ul id="settledLoans"></ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        const correctPassword = "1234"; // Replace with your password
+        const enteredPassword = prompt("Enter password to access the app:");
+        if (enteredPassword === correctPassword) {
+            document.getElementById("app").style.display = "block";
+        } else {
+            alert("Incorrect password. Access denied.");
+            window.location.href = "about:blank";
+        }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="./db.js"></script>
+    <script src="./app.js"></script>
+</body>
+</html>
