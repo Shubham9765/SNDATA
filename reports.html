@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Loan Reports</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+</head>
+<body>
+    <div id="app" style="display: none;">
+        <div class="reports-container">
+            <h1>Loan Reports</h1>
+            <a href="./index.html" class="back-link">Back to Main App</a>
+            <div class="report-controls">
+                <input type="text" id="reportDate" placeholder="Select Date (DD-MM-YYYY)">
+                <button id="dailyReportBtn">Daily Report</button>
+                <button id="monthlyReportBtn">Monthly Report</button>
+                <button id="yearlyReportBtn">Yearly Report</button>
+            </div>
+            <div class="report-section" id="reportSection">
+                <h2 id="reportTitle">Select a Report Type and Date</h2>
+                <div id="reportSummary" class="report-summary"></div>
+                <div id="reportContent"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const correctPassword = "1234"; // Replace with your password
+        const enteredPassword = prompt("Enter password to access the reports:");
+        if (enteredPassword === correctPassword) {
+            document.getElementById("app").style.display = "block";
+        } else {
+            alert("Incorrect password. Access denied.");
+            window.location.href = "about:blank";
+        }
+    </script>
+    <script src="./db.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="./app_reports.js"></script>
+</body>
+</html>

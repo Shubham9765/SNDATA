@@ -1,0 +1,335 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: #f0f2f5;
+    margin: 0;
+}
+
+.container, .reports-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1400px;
+    margin: 20px auto;
+}
+
+.reports-container {
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    color: #2c3e50;
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-align: center;
+    border-bottom: 3px solid #007bff;
+    padding-bottom: 10px;
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: #007bff;
+    text-decoration: none;
+    font-size: 1.1em;
+    transition: color 0.3s;
+}
+
+.back-link:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+.section, .report-section {
+    flex: 1;
+    padding: 20px;
+    border-radius: 10px;
+    background: white;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+
+.section:hover, .report-section:hover {
+    transform: translateY(-5px);
+}
+
+h2 {
+    margin-top: 0;
+    color: #2c3e50;
+    font-size: 1.5em;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 5px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input, textarea, select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    transition: border-color 0.3s;
+}
+
+input:focus, textarea:focus, select:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+button {
+    padding: 10px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+.report-controls {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.report-controls input {
+    width: 200px;
+    margin-right: 10px;
+}
+
+.report-controls button {
+    background: #17a2b8;
+    padding: 12px 20px;
+    font-size: 1.1em;
+}
+
+.report-controls button:hover {
+    background: #138496;
+}
+
+.report-section {
+    width: 100%;
+    max-width: 1000px;
+}
+
+.report-summary {
+    margin: 15px 0;
+    padding: 10px;
+    background: #e9ecef;
+    border-radius: 5px;
+    font-size: 0.95em;
+    color: #2c3e50;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.report-summary span {
+    padding: 5px 10px;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.report-item {
+    margin: 15px 0;
+    padding: 15px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    border-left: 5px solid #007bff;
+}
+
+.report-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    color: #2c3e50;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.report-total {
+    background: #007bff;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 0.9em;
+}
+
+.report-loan-list {
+    list-style: none;
+    padding: 0;
+}
+
+.report-loan-list li {
+    padding: 10px;
+    background: white;
+    margin: 5px 0;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    font-size: 0.95em;
+    color: #555;
+}
+
+.report-loan-list li small {
+    color: #777;
+    font-size: 0.85em;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+}
+
+li {
+    background: #ffffff;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border-left: 5px solid #007bff;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.settled-section li {
+    border-left: 5px solid #28a745;
+}
+
+li:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+li .loan-header {
+    font-weight: bold;
+    color: #2c3e50;
+    font-size: 1.1em;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+li .loan-header .type {
+    background: #007bff;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.8em;
+}
+
+.settled-section li .loan-header .type {
+    background: #28a745;
+}
+
+li .loan-details {
+    color: #555;
+    font-size: 0.95em;
+    line-height: 1.5;
+}
+
+li .loan-details span {
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+li .history {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px dashed #ddd;
+    font-size: 0.9em;
+    color: #777;
+}
+
+.action-btn {
+    margin-left: 10px;
+    padding: 6px 12px;
+    font-size: 0.9em;
+    border-radius: 4px;
+}
+
+.delete-btn {
+    background: #dc3545;
+}
+
+.delete-btn:hover {
+    background: #c82333;
+}
+
+.revoke-btn {
+    background: #ffc107; /* Yellow for revoke actions */
+}
+
+.revoke-btn:hover {
+    background: #e0a800;
+}
+
+.db-controls {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+#exportBtn {
+    background: #28a745;
+}
+
+#exportBtn:hover {
+    background: #218838;
+}
+
+#importBtn {
+    background: #6c757d;
+}
+
+#importBtn:hover {
+    background: #5a6268;
+}
+
+#exportExcelBtn {
+    background: #17a2b8;
+}
+
+#exportExcelBtn:hover {
+    background: #138496;
+}
+
+#viewReportsBtn {
+    background: #ffc107;
+}
+
+#viewReportsBtn:hover {
+    background: #e0a800;
+}
+
+#searchActive, #searchSettled {
+    width: 100%;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 1em;
+}
